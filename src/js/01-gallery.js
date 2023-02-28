@@ -12,7 +12,7 @@ function markup(){
     return galleryItems.map((element) =>{
         const {preview, original, description} = element;
 
-        return `<li class="gallery__item"
+        return `<div class="gallery__item"
                     <a class="gallery__link" href="${original}">
                         <img
                             class="gallery__image"
@@ -22,11 +22,11 @@ function markup(){
                             title="${description}"
                         />
                     </a>
-                </li>`
+                </div>`
     }).join('');
 }
 
-const lightbox = new SimpleLightbox('.gallery li', {
+const lightbox = new SimpleLightbox('.gallery div', {
     captionSelector: 'img',
     captionDelay: 250
 });
