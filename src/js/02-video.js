@@ -13,10 +13,6 @@ idPlayer.on('timeupdate', throttle((data)=>{
     }
 }, 1000, {'trailing': false}));
 
-document.querySelector('body').addEventListener('click', ()=>{
-    console.log(getTime().seconds)
-});
-
 function getTime(){
     try {
         const serializedTime = localStorage.getItem('timer');
