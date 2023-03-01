@@ -1,8 +1,8 @@
 const throttle = require('lodash.throttle');
 
 const form = document.querySelector('.feedback-form');
-const emailVal = document.querySelector('[name="email"]').value;
-const messageVal = document.querySelector('[name="message"]').value;
+const email = document.querySelector('[name="email"]');
+const message = document.querySelector('[name="message"]');
 
 form.addEventListener('submit', preventDefault);
 form.addEventListener('submit', throttle(saveInputs, 500, {"trailing": false}));
@@ -11,8 +11,8 @@ if(localStorage.getItem('feedback-form-state') !== null){
     try {
         const serializedInputs = JSON.parse(localStorage.getItem("feedback-form-state"));
 
-        emailVal = serializedInputs.email;
-        messageVal = serializedInputs.message;
+        email.value = serializedInputs.email;
+        message.value = serializedInputs.message;
 
     } catch (error) {
         console.log(error.message);
