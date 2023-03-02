@@ -37,14 +37,13 @@ function saveInputs(event){
 
 function clearInputs(event){
     event.preventDefault();
+    const {
+        elements: {email, message}
+    } = event.currentTarget;
     const obj = {
         email: email.value,
         message: message.value
     }
-    const {
-        elements: {email, message}
-    } = event.currentTarget;
-    
     console.log("local storage: ", localStorage.getItem("feedback-form-state"));
     console.log(obj);
 
