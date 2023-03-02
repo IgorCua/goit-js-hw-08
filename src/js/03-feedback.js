@@ -33,7 +33,7 @@ function saveInputs(event){
     }
  
     console.log({email: email.value, message: message.value})
-    localStorage.clear();
+    //localStorage.clear();
 }
 console.log("local storage: ", localStorage.getItem("feedback-form-state"));
 
