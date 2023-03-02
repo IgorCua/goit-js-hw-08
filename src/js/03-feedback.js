@@ -5,6 +5,7 @@ const email = document.querySelector('[name="email"]');
 const message = document.querySelector('[name="message"]');
 
 form.addEventListener('input', throttle(saveInputs, 500, {"trailing": false}));
+form.addEventListener('submit', clearInputs);
 
 if(localStorage.getItem('feedback-form-state') !== null){
     try {
@@ -16,10 +17,10 @@ if(localStorage.getItem('feedback-form-state') !== null){
     } catch (error) {
         console.log(error.message);
     }
+    console.log('getItem ', localStorage.getItem('feedback-form-state'))
 } 
 
 function saveInputs(event){
-    localStorage.removeItem("feedback-form-state");
     const {
         elements: {email, message}
     } = event.currentTarget;
@@ -30,12 +31,22 @@ function saveInputs(event){
     } catch (error){
         console.log(error.message);
     }
- 
-    console.log({email: email.value, message: message.value})
+    console.log('saveInputs ', localStorage.getItem('feedback-form-state'))
+    
     //localStorage.clear();
 }
-console.log("local storage: ", localStorage.getItem("feedback-form-state"));
 
-function preventDefault(event){
+function clearInputs(event){
     event.preventDefault();
+    const {
+        elements: {email, message}
+    } = event.currentTarget;
+
+    email.value = '';
+    message.value = '';
+
+    localStorage.removeItem("feedback-form-state");
+    console.log("local storage: ", localStorage.getItem("feedback-form-state"));
+
+    console.log({email: email.value, message: message.value})
 }
