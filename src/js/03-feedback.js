@@ -4,7 +4,6 @@ const form = document.querySelector('.feedback-form');
 const email = document.querySelector('[name="email"]');
 const message = document.querySelector('[name="message"]');
 
-form.addEventListener('submit', preventDefault);
 form.addEventListener('input', throttle(saveInputs, 500, {"trailing": false}));
 
 if(localStorage.getItem('feedback-form-state') !== null){
