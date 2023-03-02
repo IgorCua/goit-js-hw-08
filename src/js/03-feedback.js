@@ -31,7 +31,6 @@ function saveInputs(event){
     } catch (error){
         console.log(error.message);
     }
-    console.log('saveInputs ', localStorage.getItem('feedback-form-state'))
     
     //localStorage.clear();
 }
