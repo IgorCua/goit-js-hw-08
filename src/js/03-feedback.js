@@ -5,7 +5,7 @@ const email = document.querySelector('[name="email"]');
 const message = document.querySelector('[name="message"]');
 
 form.addEventListener('submit', preventDefault);
-form.addEventListener('submit', throttle(saveInputs, 500, {"trailing": false}));
+form.addEventListener('input', throttle(saveInputs, 500, {"trailing": false}));
 
 if(localStorage.getItem('feedback-form-state') !== null){
     try {
@@ -23,7 +23,7 @@ function saveInputs(event){
     localStorage.removeItem("feedback-form-state");
     const {
         elements: {email, message}
-    } = event.target;
+    } = event.currentTarget;
   
     try {
         const serializedInputs = JSON.stringify({email: email.value, message: message.value});

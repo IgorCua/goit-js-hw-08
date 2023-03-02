@@ -5,7 +5,7 @@ const throttle = require('lodash.throttle');
 const idPlayer = new Player('vimeo-player');
 
 if(localStorage.getItem("videoplayer-current-time") !== null){
-    idPlayer.setCurrentTime(getTime().seconds).then(function(seconds) {
+    idPlayer.setCurrentTime(getTime()).then(function(seconds) {
         // seconds = the actual time that the player seeked to
     });
 }
@@ -22,7 +22,7 @@ idPlayer.on('timeupdate', throttle((data)=>{
 function getTime(){
     try {
         const serializedTime = localStorage.getItem("videoplayer-current-time");
-        return serializedTime === null ? undefined : JSON.parse(serializedTime);
+        return JSON.parse(serializedTime).seconds;
     } catch (error) {
         console.log('Set current time error: ', error.message);
     }
