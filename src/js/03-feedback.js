@@ -20,7 +20,7 @@ if(localStorage.getItem('feedback-form-state') !== null){
 } 
 
 function saveInputs(event){
-    if(event.currentTarget?.elements) {;
+    if(event.currentTarget?.elements) {
         
         const {
             elements: {email, message}
