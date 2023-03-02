@@ -30,8 +30,6 @@ if(localStorage.getItem('feedback-form-state') !== null){
 
 //saving input values to local storage
 function saveInputs(event){
-    console.log('target: ', event)
-
     event.target.name === 'email' ? globalEmail = event.target.value 
                                     : globalMessage = event.target.value;            
    
