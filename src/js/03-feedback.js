@@ -41,10 +41,11 @@ function clearInputs(event){
         elements: {email, message}
     } = event.currentTarget;
 
+    console.log("local storage: ", localStorage.getItem("feedback-form-state"));
+    console.log({email: email.value, message: message.value});
+
     email.value = '';
     message.value = '';
 
     localStorage.removeItem("feedback-form-state");
-    console.log("local storage: ", localStorage.getItem("feedback-form-state"));
-    console.log({email: email.value, message: message.value});
 }
